@@ -1,0 +1,9 @@
+{
+	"output": "/home/ntoskrnl/services/nginx",
+	"test.ntos.tech": {
+		"template": "default.html"
+	},
+	"ntos.tech": {
+		"template": "default.html"
+	}
+}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="canonical" href="{_template_target_url}" />
+	<meta name="description" content="{_template_page_description}">
+	<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+	<meta name="theme-color" content="#c3651e">  <!-- todo; set this better eventually -->
+
+	<meta property="og:site_name" content="ntos.tech">
+	<meta property="og:locale" content="en_US">
+<!--	<meta property="og:locale:alternate" content="de_DE"> (Todo)-->
+	<meta property="og:title" content="{_template_page_title} | ntos.tech">
+	<meta property="og:description" content="{_template_page_description}">
+	<meta property="og:image" content="{_template_og_image}">
+<!--	<meta property="og:image:width" content="{_template_og_image_width}"> (Todo)-->
+<!--	<meta property="og:image:height" content="{_template_og_image_height}"> (Todo)-->
+<!--	<meta property="og:image:type" content="{_template_og_image_mime}"> (Todo)-->
+<!--	<meta property="og:image:alt" content="{_template_og_image_alt}"> (Todo)-->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="{_template_target_url}">
+
+	<meta name="article:modified_time" content="{_template_mtime}">
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@ntoskrnl4">
+	<meta name="twitter:site" content="@ntoskrnl4">
+	<meta name="twitter:title" content="{_template_page_title}">
+	<meta name="twitter:description" content="{_template_page_description}">
+
+
+	<link href="/static/style.css" rel="preload stylesheet" as="style" />
+	<link href="/static/code.css" rel="preload stylesheet" as="style" />
+	<link rel="preload" as="font" type="font/woff2" href="/static/roboto-slab-v34-latin-regular.woff2" />
+	<link rel="preload" as="font" type="font/woff2" href="/static/roboto-v30-latin-regular.woff2" />
+	<link rel="preload" as="font" type="font/woff2" href="/static/roboto-v30-latin-italic.woff2" />
+	<link rel="preload" as="font" type="font/woff2" href="/static/roboto-v30-latin-700.woff2" />
+	<link rel="preload" as="font" type="font/woff2" href="/static/roboto-v30-latin-700italic.woff2" />
+
+	<title>{_template_page_title} | ntos.tech</title>
+
+</head>
+<body>
+	<div id="top_content" class="sticky_top">
+		<a href="https://ntos.tech/">Home</a>
+		<div>
+			<h2>ntos.tech</h2>
+			<small>electronics and computers, furry edition</small>
+		</div>
+		<a href="#">Back to top</a>
+	</div>
+	<div id="page_canvas">
+
+		<img src="/static/banner.webp"
+			 width="1200" height="400"
+			 class="banner_image"
+			 alt="Website banner image (Ntos the anthro fox, sitting in a metro train on a dark purple evening, observing the bright bustling city and the mountains behind.)" />
+
+		<nav id="navbar">
+			<!-- Setup:
+			 Different subfolders within main folder would be each link below, it would add links as necessary
+			 Subsections eg. "About", "Electronics", "Programming", "Photography", "Radio" with own articles
+			 (Home just takes you to /index.html)
+			 -->
+			<a href="#" target="_blank" class="nav_button">Link</a> <!-- Todo: Add different sites' links -->
+			<a href="#" target="_blank" class="nav_button">Link</a>
+			<a href="#" target="_blank" class="nav_button">Link</a>
+			<a href="#" target="_blank" class="nav_button">Link</a>
+		</nav>
+
+		<div id="page_content">
+
+
+			<main class="layout_block">
+
+{_template_main_content}
+
+			</main>
+
+
+			<aside id="about_container">
+				<img id="sticker_slot" src="" width=512 height=512 alt="A playful, decorative sticker of Ntos from his sticker pack">
+				<div id="about_content" class="layout_block">
+					<small>
+						<p>hi, i'm ntos. I do a bunch of random things involving computers and electronics, from amateur
+						radio to embedded projects and so much more. in short: if it flows electrons, I like it.</p>
+						<p>this is my corner of the internet; enjoy your stay!</p>
+						<a href="/about" class="quiet_link">about me</a>
+					</small>
+				</div>
+			</aside>
+<!--			<aside id="toc_container">-->
+<!--				<img id="sticker_slot" src="" width=512 height=512 alt="A playful, decorative sticker of Ntos from his sticker pack">-->
+<!--				<div id="toc_content" class="layout_block toc">-->
+
+<!--{_template_toc_content}-->
+
+<!--				</div>-->
+<!--			</aside>-->
+
+
+		</div>
+
+		<footer id="bottom_content">
+				Find me on:
+				<a href="https://twitter.com/ntoskrnl4" rel="me">Twitter</a> |
+<!--				<a href="https://bsky.app/profile/ntos.tech" rel="me">Bluesky</a> |-->
+				<a href="https://furry.engineer/@ntoskrnl" rel="me">Mastodon</a> |
+				<a href="https://linktr.ee/ntoskrnl">Full List</a> <!-- Todo: link to full socials page in future -->
+			<br>
+			<small>
+				<!-- Todo: write a credits & copyright page on my site -->
+				Main content on ntos.tech is licensed under CC BY-NC 4.0, unless noted otherwise.
+				<a href="https://creativecommons.org/licenses/by-nc/4.0/" class="quiet_link">More info here</a>.
+			<br>
+				<!-- Todo: link to project page of how the site was built -->
+				🦊 Made entirely by my own two paws from the ground up, using nothing but Python, nginx, and passion 🧡
+			<br>
+				<!-- why does pycharm say div isn't allowed here?? -->
+				<div id="footer_quote" style="font-style: italic"></div>
+			<br>
+			<br>
+			<br>
+				ETag {_template_etag} | Rendered {_template_mtime} | Template {_template_template}
+			</small>
+		</footer>
+
+	</div>
+
+	<script>
+		// randomly-chosen quotes for use at the bottom of the page
+		// my favorites get 2x the picks, because i said so
+		const quotes = [
+			"\"Why be like everyone else, a star, when you could be the northern lights?\"",
+			"\"Why be like everyone else, a star, when you could be the northern lights?\"",
+			"\"In the face of ambiguity, refuse the temptation to guess.\"  -- The Zen of Python",
+			"\"a certain darkness is needed to see the stars.\"",
+			"\"Your future hasn't been written yet. No one's has! Your future is whatever you make it. So make it a good one!\"  -- Doc Brown",
+			"\"all we have to decide is what to do with the time that is given to us.\"  -- Gandalf",
+			"\"Everything will be okay in the end. If it's not okay, it's not the end.\"",
+			"Born too late to explore the Earth, born too early to explore the stars, but born at the perfect time to explore the endless worlds of Minecraft",
+			"\"It's not about how many bits you've got, it's about how you use them.\" > regarding the Apollo Guidance Computer",
+			"\"If you never heal from what hurt you, you'll bleed on those who never cut you.\"",
+		];
+		const stickers = [
+			"/static/stickers/chaos.webp",
+			"/static/stickers/oscilloscope.webp",
+			"/static/stickers/programming.webp",
+			"/static/stickers/radio.webp",
+			"/static/stickers/servers.webp",
+			"/static/stickers/wimdy.webp",
+			"/static/stickers/yapyapyap.webp",
+		];
+		window.addEventListener("DOMContentLoaded", function() {
+			document.getElementById("footer_quote").innerHTML = quotes[Math.floor(Math.random() * quotes.length)];
+			document.getElementById("sticker_slot").src = stickers[Math.floor(Math.random() * stickers.length)];
+		})
+	</script>
+</body>
+</html>
