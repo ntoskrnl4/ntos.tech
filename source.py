@@ -71,7 +71,7 @@ class SourceFile:
             intro = ""
             intro_length = 255  # How long the intro will be
             for line in self.source.split("\n"):
-                if not line.startswith("#"):
+                if not (line.startswith("#") or line.startswith("<img")):
                     intro += line.strip() + " "
                 if len(intro) >= intro_length:
                     break
