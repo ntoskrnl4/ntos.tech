@@ -1,0 +1,374 @@
+/* ==================================
+                Fonts
+================================== */
+/*  Font information from https://gwfh.mranftl.com/fonts/ */
+@font-face {
+  font-display: swap;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('roboto-v30-latin-regular.woff2') format('woff2');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 400;
+  src: url('roboto-v30-latin-italic.woff2') format('woff2');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: url('roboto-v30-latin-700.woff2') format('woff2');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 700;
+  src: url('roboto-v30-latin-700italic.woff2') format('woff2');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 400;
+  src: url('roboto-slab-v34-latin-regular.woff2') format('woff2');
+}
+
+/* ==================================
+        Root-level classes
+================================== */
+
+:root {
+    --background-url: url("bg-light.webp");
+    --background-brightness: brightness(1.0);
+    --background-blocks: #e6e6e6;
+    --text-color: #333;
+    --footer-color: #bbb;
+    --shadow-color: #000;
+    --webpage-max-width: min(1200px, 100vw);
+    --top-bar-height: 64px;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+
+    --trigger-width-readjust-layout: 1000px;
+    --trigger-width-remove-sticky-links: 800px;
+    --trigger-height-shorten-sticky: 621px;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-url: url("bg-dark.webp");
+        --background-brightness: brightness(0.3);
+        --background-blocks: #333;
+        --text-color: #e6e6e6;
+        --footer-color: #777;
+        scrollbar-color: #888 var(--background-blocks);
+    }
+
+    a:link {
+        color: #c3651e;
+    }
+
+    a:visited {
+        color: #c3651e;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* ==================================
+    Classes for template features
+================================== */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Roboto Slab", serif;
+}
+
+html {
+    background: var(--background-url);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    font-family: "Roboto", "Segoe UI", sans-serif;
+}
+
+body {
+    backdrop-filter: blur(10px) var(--background-brightness);
+    -webkit-backdrop-filter: blur(10px) var(--background-brightness);
+    margin: auto auto;
+    min-height: 100vh;
+    color: var(--text-color);
+    font-size: 13pt;
+    padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+.layout_block {
+    background: var(--background-blocks);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.sticky_top {
+    height: var(--top-bar-height);
+    margin: 0 0 10px 0;
+    background-color: var(--background-blocks);
+    box-shadow: 0 0 8px 2px var(--shadow-color);
+    z-index: 255;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+
+    /* Don't you just love css (please send help) */
+    padding-top: max(env(safe-area-inset-top, 0), auto);
+    padding-left: max(env(safe-area-inset-left, 0), calc((100% - min(var(--webpage-max-width), 100vw)) / 2));
+    padding-right: max(env(safe-area-inset-right, 0), calc((100% - min(var(--webpage-max-width), 100vw)) / 2));
+}
+.sticky_top > * {
+    margin: auto 15px;
+    padding: 0;
+}
+.sticky_top > div {
+    text-align: center;
+}
+.sticky_top > div > h2 {
+    margin: 0;
+}
+
+#page_canvas {
+    margin: 0 auto;
+    max-width: var(--webpage-max-width);
+    padding: env(safe-area-inset-top, 0) env(safe-area-inset-right, 0) min(env(safe-area-inset-bottom, 0), 5px) env(safe-area-inset-left, 0);
+}
+
+.banner_image {
+    height: auto;
+    border-radius: 10px;
+}
+
+#navbar {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+#navbar > a {
+    flex: 1;
+    text-decoration: none;
+}
+
+.nav_button {
+    border: 3px solid #4c9bd1;
+    border-radius: 15px;
+    min-height: 54px;
+    background: var(--background-blocks);
+    box-shadow: 0 0 3px 0 var(--shadow-color);
+    margin: 5px;
+    max-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#page_content {
+    display: flex;
+    box-sizing: border-box;
+}
+
+main {
+    flex: 1;
+    padding: 25px !important;
+}
+
+aside {
+    max-width: 20%;
+    min-height: calc(100vh - var(--top-bar-height) - 10px);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    align-self: flex-start;
+    -webkit-align-self: flex-start;
+    top: calc(var(--top-bar-height) + 5px);
+    /* Ideally, I'd like to have the sidebars only extend to the bottom edge of the screen, and just scroll with
+    the user, but that's immensely complicated for some reason so I give up this is the best solution I can do */
+}
+
+aside > div {
+    flex: 1
+}
+
+#sticker_slot {
+    max-width: 100%;
+    /*margin-top: 5px;*/
+    padding: 0;
+    height: auto;
+}
+
+#about_content {
+    text-align: center;
+    color: #7f7f7f;
+}
+
+#toc_content {
+    padding-left: 0;
+    ul {
+        padding-left: 12px;  /* Indent for each level of the table of contents */
+        list-style-type: none;  /* Remove bullet points in the table of contents */
+    }
+    li {
+        margin-top: 6px;  /* padding between items in the table of contents */
+    }
+}
+
+#bottom_content {
+    background: transparent;
+    text-align: center;
+    color: var(--footer-color);
+    padding: 5px;
+}
+
+small {  /* redundant? */
+    font-size: small;
+}
+
+/* ==================================
+        Responsive design
+================================== */
+
+@media (max-width: 1000px) {  /* why The Fuck can't this be a --var */
+    #page_content {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    #page_content > aside {
+        width: 100%;
+        position: relative;
+        flex: 0;
+        top: 0;
+        bottom: 0;
+        min-height: 0;
+        max-width: unset;
+    }
+
+    #sticker_slot {
+        display: none;
+    }
+
+    .toc ul {
+        padding-left: 5vw;
+    }
+
+    main {
+        order: 2;
+        padding: 10px !important; /* todo: figure out how to avoid using !important here */
+    }
+
+    #toc_container {
+        order: 1;
+    }
+    #about_container {
+        order: 3;
+    }
+}
+
+/* Remove links from the sticky if it might be too narrow to support it */
+@media (max-width: 800px) {
+    #top_content > a {
+        display: none;
+    }
+    #top_content > div {
+        margin: auto;
+    }
+
+    .float-left .float-right {
+        max-width: unset;
+        float: none;
+    }
+}
+
+/* Shorten the sticky for stubby screens */
+@media (max-height: 621px) {
+    :root {
+        --top-bar-height: 38px;
+    }
+    .sticky_top > div > small {
+        display: none;
+    }
+}
+
+/* ==================================
+Classes for global article formatting
+================================== */
+
+h1 {
+    font-size: 2.25rem;
+    text-align: center;
+    border-bottom: #888 solid 2px;
+    clear: both;  /* headers will forcibly use full width, avoiding any side-floating <img>s */
+}
+h2 {
+    font-size: 1.75rem;
+    text-align: center;
+    clear: both;
+}
+h3 {
+    font-size: 1.5rem;
+    clear: left;  /* these headers may appear with a right-floating image, but not left */
+}
+h4 {
+    font-size: 1.25rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    clear: left;
+}
+
+/*pre {*/
+/*    white-space: pre-wrap;*/
+/*    backdrop-filter: brightness(0.8);*/
+/*    border: 3px solid #7f7f7f;*/
+/*    padding: 10px;*/
+/*    border-radius: 10px;*/
+/*    font-size: smaller;*/
+/*}*/
+
+code {
+    font-family: "Cascadia Code", "Segoe UI Mono", "Liberation Mono", Menlo, Monaco, monospace;
+	backdrop-filter: brightness(0.8);
+	border-radius: 3px;
+	padding: 2px;
+	font-size: smaller;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* ==================================
+Extra classes for article features
+================================== */
+
+.quiet_link {
+    color: unset !important;  /* todo: figure out how to avoid using !important here */
+}
+
+.float_left {
+    float: left;
+    max-width: 33.333%;
+    max-height: 80vh;
+}
+.float_right {
+    float: right;
+    max-width: 33.333%;
+    max-height: 80vh;
+}
