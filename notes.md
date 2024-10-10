@@ -50,3 +50,4 @@ Todo:
 - Pre-render hooks for other scripts to modify a page's html
 - Pre-generate hooks for other scripts to modify the filesystem (eg. post listing, static rss file,..)
 - speaking of, an RSS feed!
+- A custom code-highlighting scheme?
