@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 # Todo:
 #  This is the main entrypoint script
 #  No args, it will regenerate all sites in the master configuration file (mapping of paths, folder > output)
@@ -7,17 +9,17 @@
 #  pygments keeps track of every style ever rendered, light and dark, and places into a code-dark and code-light .css in staticfiles
 #   (note this means that staticfiles will have to be processed last, this can just be done by reordering the path list when iterating through top-level directory tree)
 
-import json
-import sys
-from pathlib import Path
-
-from domain import WebsiteDomain
-
 # i know for a fact we're going to need 3.12 features (namely pathlib.Path.walk)
 if sys.version_info.minor < 12:
     sys.stderr.write("sitegen: Requires Python 3.12+\n")
     sys.stderr.flush()
     sys.exit(1)
+
+import json
+import sys
+from pathlib import Path
+
+from domain import WebsiteDomain
 
 
 try:
